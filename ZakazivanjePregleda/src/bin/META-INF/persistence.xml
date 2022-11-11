@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="ZakazivanjePregleda">
+		<class>projekat.models.Appoitment</class>
+		<class>projekat.models.City</class>
+		<class>projekat.models.Doctor</class>
+		<class>projekat.models.Exam</class>
+		<class>projekat.models.Examtype</class>
+		<class>projekat.models.Facility</class>
+		<class>projekat.models.Insurance</class>
+		<class>projekat.models.Municipality</class>
+		<class>projekat.models.Patient</class>
+		<class>projekat.models.State</class>
+		<class>projekat.models.UserRoleId</class>
+		<class>projekat.models.UserRole</class>
+		<class>projekat.models.Role</class>
+		<class>projekat.models.User</class>
+
+	</persistence-unit>
+</persistence>
