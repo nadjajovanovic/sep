@@ -8,10 +8,9 @@ public class JwtResponse {
     private String token;
     private String username;
 
-    public JwtResponse(String jwt, String username) {
+    public JwtResponse(String jwt) {
         super();
         this.token = jwt;
-        this.username = username;
     }
 
     public String getJwt() {
@@ -20,13 +19,5 @@ public class JwtResponse {
 
     public void setJwt(String jwt) {
         this.token = jwt;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 }

@@ -52,6 +52,8 @@ public class Exam implements Serializable {
 	@JoinColumn(name="patientid")
 	private Patient patient;
 
+	private Integer userId;
+
 	/*public Exam() {
 		
 	}
