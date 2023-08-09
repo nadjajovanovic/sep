@@ -37,22 +37,42 @@ public class Exam implements Serializable {
 	@JoinColumn(name="doctorid")
 	private Doctor doctor;
 
+	/*@Column(name="doctorid")
+	private Integer doctor;*/
+
 	//bi-directional many-to-one association to Examtype
 	@ManyToOne
 	@JoinColumn(name="examtypeid")
 	private Examtype examtype;
+
+	/*@Column(name="examtypeid")
+	private Integer examtype;*/
 
 	//bi-directional many-to-one association to Insurance
 	@ManyToOne
 	@JoinColumn(name="insuranceid")
 	private Insurance insurance;
 
+	/*@Column(name="insuranceid")
+	private Integer insurance;*/
+
 	//bi-directional many-to-one association to Patient
 	@ManyToOne
 	@JoinColumn(name="patientid")
 	private Patient patient;
 
-	private Integer userId;
+	/*@Column(name="patientid")
+	private Integer patient;*/
+
+	//bi-directional many-to-one association to Facility
+	@ManyToOne
+	@JoinColumn(name="facilityid")
+	private Facility facility;
+
+	/*@Column(name="facilityid")
+	private Integer facility;*/
+
+	//private Integer userId;
 
 	/*public Exam() {
 		

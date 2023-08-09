@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Doctor } from '../models/doctor';
 import { Patient } from '../models/patient';
 
 @Injectable({
@@ -50,7 +49,7 @@ export class PatientService {
     }));
   }
 
-  public deleteDoctor(patientid: number) {
+  public deletePatient(patientid: number) {
     let token = this.getToken();
     let reqHeaders = this.getHttpHeaders(token);
     return this.httpClient.delete(this.patientUrl + patientid, {headers: reqHeaders})

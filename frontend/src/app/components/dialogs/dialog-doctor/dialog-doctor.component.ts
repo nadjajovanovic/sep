@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Doctor } from 'src/app/models/doctor';
 import { DoctorService } from 'src/app/services/doctor.service';
@@ -11,8 +11,6 @@ import { NotificationService } from 'src/app/services/notification.service';
   styleUrls: ['./dialog-doctor.component.css']
 })
 export class DialogDoctorComponent implements OnInit {
-
-  doctor: Doctor[] = [];
   formValue!: FormGroup;
   actionBtn : string = "Save";
   currentid : number;
@@ -22,42 +20,31 @@ export class DialogDoctorComponent implements OnInit {
     private notification : NotificationService,
     private formBuilder: FormBuilder, 
     private dialogRef : MatDialogRef<DialogDoctorComponent>,
-    @Inject(MAT_DIALOG_DATA) public editData : Doctor) { }
+    @Inject(MAT_DIALOG_DATA) public editData : Doctor ) { }
 
   ngOnInit(): void {
-    this.formValue = this.formBuilder.group({
-      doctorname: ['', Validators.required],
-      doctoraddress: ['', Validators.required],
-      doctorphonenumber: ['', Validators.required],
-      occupation: ['', Validators.required]
-    });
-
     if(this.editData) {
       this.actionBtn = "Update";
-      this.heading = "Update doctor";
-      this.formValue.patchValue({
-        doctorname: this.editData.doctorname,
-        doctoraddress: this.editData.doctoraddress,
-        doctorphonenumber: this.editData.doctorphonenumber,
-        occupation: this.editData.occupation
-      });
+      this.heading = "Update municipality";
+      
+      
     }
   }
 
   public cancel(): void {
     this.dialogRef.close();
   }
-
-  public addDoctor() {
+  
+  public addDoctor(f: NgForm) {
     if(!this.editData) {
-      if(this.formValue.valid) {
-        this.service.addDoctor(this.formValue.value)
+      if(f.valid) {
+        console.log(f.value);
+        this.service.addDoctor(f.value)
         .subscribe({
           next: (res) => {
             this.notification.success(':: Added successfully');
-            this.formValue.reset();
+            f.reset();
             this.dialogRef.close('save');
-            console.log(this.formValue);
           },
           error: () => {
             alert("Something went wrong");
@@ -65,17 +52,21 @@ export class DialogDoctorComponent implements OnInit {
         })
       }
     } else {
-      this.updateDoctor();
+      this.updateMuniciplaity(f);
     }
   }
 
-  public updateDoctor() {
+  compareTo(a: any, b: any) {
+    return a.id == b.id;
+  }
+
+  public updateMuniciplaity(f: NgForm) {
     this.currentid = this.editData.doctorid;
     let data = {
-      doctorname : this.formValue.value.doctorname,
-      doctoraddress: this.formValue.value.doctoraddress,
-      doctorphonenumber: this.formValue.value.doctorphonenumber,
-      occupation: this.formValue.value.occupation,
+      doctorname : f.value.doctorname,
+      doctoraddress: f.value.doctoraddress,
+      doctorphonenumber: f.value.doctorphonenumber,
+      occupation: f.value.occupation,
       doctorid: this.currentid
     }
     console.log(data);
@@ -85,9 +76,8 @@ export class DialogDoctorComponent implements OnInit {
       console.log(res);
       
       this.notification.success(':: Updated successfully');
-      this.formValue.reset();
+      f.reset();
       this.dialogRef.close('update');
     });
   }
-
 }

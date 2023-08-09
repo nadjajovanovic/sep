@@ -15,7 +15,6 @@ import { NotificationService } from './services/notification.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-//import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MatInputModule} from '@angular/material/input';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -39,6 +38,27 @@ import { PatientService } from './services/patient.service';
 import { ExamTypeComponent } from './components/exam-type/exam-type.component';
 import { DialogExamTypeComponent } from './components/dialogs/dialog-exam-type/dialog-exam-type.component';
 import { ExamTypeService } from './services/exam-type.service';
+import { InsuranceService } from './services/insurance.service';
+import { InsuranceComponent } from './components/insurance/insurance.component';
+import { DialogInsuranceComponent } from './components/dialogs/dialog-insurance/dialog-insurance.component';
+import { StateService } from './services/state.service';
+import { StateComponent } from './components/state/state.component';
+import { DialogStateComponent } from './components/dialogs/dialog-state/dialog-state.component';
+import { MunicipalityService } from './services/municipality.service';
+import { MunicipalityComponent } from './components/municipality/municipality.component';
+import { DialogMunicipalityComponent } from './components/dialogs/dialog-municipality/dialog-municipality.component';
+import { CityComponent } from './components/city/city.component';
+import { DialogCityComponent } from './components/dialogs/dialog-city/dialog-city.component';
+import { CityService } from './services/city.service';
+import { FacilityComponent } from './components/facility/facility.component';
+import { DialogFacilityComponent } from './components/dialogs/dialog-facility/dialog-facility.component';
+import { FacilityService } from './services/facility.service';
+import { AppoitmentComponent } from './components/appoitment/appoitment.component';
+import { DialogAppoitmentComponent } from './components/dialogs/dialog-appoitment/dialog-appoitment.component';
+import { AppoitmentService } from './services/appoitment.service';
+import { ExamComponent } from './components/exam/exam.component';
+import { DialogExamComponent } from './components/dialogs/dialog-exam/dialog-exam.component';
+import { ExamService } from './services/exam.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +72,21 @@ import { ExamTypeService } from './services/exam-type.service';
     PatientComponent,
     DialogPatientComponent,
     ExamTypeComponent,
-    DialogExamTypeComponent
+    DialogExamTypeComponent,
+    InsuranceComponent,
+    DialogInsuranceComponent,
+    StateComponent,
+    DialogStateComponent,
+    MunicipalityComponent,
+    DialogMunicipalityComponent,
+    CityComponent,
+    DialogCityComponent,
+    FacilityComponent,
+    DialogFacilityComponent,
+    AppoitmentComponent,
+    DialogAppoitmentComponent,
+    ExamComponent,
+    DialogExamComponent
   ],
   imports: [
     BrowserModule,
@@ -79,8 +113,12 @@ import { ExamTypeService } from './services/exam-type.service';
     MatSortModule
   ],
   entryComponents: [MatConfirmDialogComponent, DialogDoctorComponent, DialogPatientComponent, 
-    DialogExamTypeComponent],
-  providers: [NotificationService, DialogService, AuthService, DoctorService, PatientService, ExamTypeService],
+    DialogExamTypeComponent, DialogInsuranceComponent, DialogStateComponent, 
+    DialogMunicipalityComponent, DialogCityComponent, DialogFacilityComponent,
+    DialogAppoitmentComponent, DialogExamComponent],
+  providers: [NotificationService, DialogService, AuthService, DoctorService, PatientService, 
+    ExamTypeService, InsuranceService, StateService, MunicipalityService, CityService, 
+    FacilityService, AppoitmentService, ExamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

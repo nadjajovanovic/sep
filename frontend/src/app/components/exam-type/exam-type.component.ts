@@ -6,8 +6,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ExamType } from 'src/app/models/exam-type';
 import { DialogService } from 'src/app/services/dialog.service';
 import { NotificationService } from 'src/app/services/notification.service';
-import { PatientService } from 'src/app/services/patient.service';
-import { DialogPatientComponent } from '../dialogs/dialog-patient/dialog-patient.component';
 import { ExamTypeService } from 'src/app/services/exam-type.service';
 import { DialogExamTypeComponent } from '../dialogs/dialog-exam-type/dialog-exam-type.component';
 

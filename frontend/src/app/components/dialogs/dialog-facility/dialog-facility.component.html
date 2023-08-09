@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{ heading }}</h1>
+<div mat-dialog-content>
+    <form #f="ngForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput  [ngModel]="editData?.facilityname" name="facilityname" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput  [ngModel]="editData?.facilityaddress" name="facilityaddress" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Contact</mat-label>
+            <input matInput  [ngModel]="editData?.facilitycontact" name="facilitycontact" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <mat-select [ngModel]="editData?.city" [compareWith]="compareTo" name="city" required>
+                <mat-option *ngFor="let c of city" [value] = "c">
+                    {{ c.cityname }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button  color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button  style="margin-left: 8px;" color="primary" (click) = "addFacility(f)">{{actionBtn}}</button>
+</div> 
+

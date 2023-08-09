@@ -44,6 +44,9 @@ public class Facility implements Serializable {
 	@JoinColumn(name="cityid")
 	private City city;
 
+	/*@Column(name="cityid")
+	private Integer city;*/
+
 	/*public Facility() {
 		
 	}

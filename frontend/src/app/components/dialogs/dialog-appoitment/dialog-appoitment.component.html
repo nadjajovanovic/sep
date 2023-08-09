@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>{{ heading }}</h1>
+<div mat-dialog-content>
+    <form #f="ngForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Appoitment date</mat-label>
+            <input [ngModel]="editData?.appoitmentdate" name="appoitmentdate"  matInput [matDatepicker]="appoitmentdate" required>
+            <mat-datepicker-toggle matSuffix [for]="appoitmentdate"></mat-datepicker-toggle>
+            <mat-datepicker #appoitmentdate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Facility</mat-label>
+            <mat-select [ngModel]="editData?.facility" [compareWith]="compareTo" name="facility" required>
+              <mat-option *ngFor="let f of facility" [value]="f">
+                {{ f.facilityname }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Patient</mat-label>
+            <mat-select [ngModel]="editData?.patient" [compareWith]="compareTo" name="patient" required>
+              <mat-option *ngFor="let p of patient" [value]="p">
+                {{ p.patientname }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button  color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button  style="margin-left: 8px;" color="primary" (click) = "addAppoitment(f)">{{actionBtn}}</button>
+</div>

@@ -1,21 +1,21 @@
 <h1 mat-dialog-title>{{ heading }}</h1>
 <div mat-dialog-content>
-    <form [formGroup] = "formValue">
+    <form #f="ngForm">
         <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
-            <input formControlName = "patientname" matInput>
+            <input matInput [ngModel]="editData?.patientname" name="patientname" required>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Address</mat-label>
-            <input formControlName = "patientaddress" matInput>
+            <input matInput [ngModel]="editData?.patientaddress" name="patientaddress" required>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Phone number</mat-label>
-            <input formControlName = "patientphonenumber" matInput>
+            <input matInput [ngModel]="editData?.patientphonenumber" name="patientphonenumber" required>
         </mat-form-field>
     </form>
 </div>
 <div mat-dialog-actions [align]="'end'">
     <button mat-raised-button  color="warn" mat-dialog-close>Close</button>
-    <button mat-raised-button  style="margin-left: 8px;" color="primary" (click) = "addPatient()">{{actionBtn}}</button>
+    <button mat-raised-button  style="margin-left: 8px;" color="primary" (click) = "addPatient(f)">{{actionBtn}}</button>
 </div>

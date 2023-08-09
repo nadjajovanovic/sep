@@ -72,7 +72,7 @@ export class PatientComponent implements OnInit {
     this.dialogService.openConfirmationDialog('Are you sure you want to delete this record?')
     .afterClosed().subscribe(res => {
       if(res) {
-        this.service.deleteDoctor(row.patientid).subscribe
+        this.service.deletePatient(row.patientid).subscribe
         (
           data => {
             this.notification.warn(":: Deleted successfully");

@@ -36,10 +36,16 @@ public class Appoitment implements Serializable {
 	@JoinColumn(name="facilityid")
 	private Facility facility;
 
+	/*@Column(name="facilityid")
+	private Integer facility;*/
+
 	//bi-directional many-to-one association to Patient
 	@ManyToOne
 	@JoinColumn(name="patientid")
 	private Patient patient;
+
+	/*@Column(name="patientid")
+	private Integer patient;*/
 
 	/*public Integer getAppoitmentid() {
 		return appoitmentid;

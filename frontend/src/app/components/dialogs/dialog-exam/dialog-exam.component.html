@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>{{ heading }}</h1>
+<div mat-dialog-content>
+    <form #f="ngForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Exam date</mat-label>
+            <input [ngModel]="editData?.examdate" name="examdate" required matInput [matDatepicker]="examdate">
+            <mat-datepicker-toggle matSuffix [for]="examdate"></mat-datepicker-toggle>
+            <mat-datepicker #examdate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Room number</mat-label>
+            <input [ngModel]="editData?.roomnumber" name="roomnumber" required matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Doctor</mat-label>
+            <mat-select [ngModel]="editData?.doctor" [compareWith]="compareTo" name="doctor" required>
+                <mat-option *ngFor="let d of doctor" [value] = "d">
+                    {{ d.doctorname }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Exam type</mat-label>
+            <mat-select [ngModel]="editData?.examtype" [compareWith]="compareTo" name="examtype" required>
+                <mat-option *ngFor="let et of examtype" [value] = "et">
+                    {{ et.examtypename }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Insurance</mat-label>
+            <mat-select [ngModel]="editData?.insurance" [compareWith]="compareTo" name="insurance" required>
+                <mat-option *ngFor="let i of insurance" [value] = "i">
+                    {{ i.insurancename }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Patient</mat-label>
+            <mat-select [ngModel]="editData?.patient" [compareWith]="compareTo" name="patient" required>
+                <mat-option *ngFor="let p of patient" [value] = "p">
+                    {{ p.patientname }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Facility</mat-label>
+            <mat-select [ngModel]="editData?.facility" [compareWith]="compareTo" name="facility" required>
+                <mat-option *ngFor="let f of facility" [value] = "f">
+                    {{ f.facilityname }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button  color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button  style="margin-left: 8px;" color="primary" (click) = "addExam(f)">{{actionBtn}}</button>
+</div>

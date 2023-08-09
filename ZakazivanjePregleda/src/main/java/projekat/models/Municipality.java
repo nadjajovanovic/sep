@@ -40,6 +40,9 @@ public class Municipality implements Serializable {
 	@JoinColumn(name="stateid")
 	private State state;
 
+	/*@Column(name="stateid")
+	private Integer state;*/
+
 	/*public Municipality() {
 		
 	}

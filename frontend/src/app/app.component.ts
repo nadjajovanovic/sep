@@ -23,12 +23,11 @@ export class AppComponent implements OnInit {
       if(localStorage.getItem('token')) {
         this.ifLoggedIn = true;
       }
-    }
+  }
 
   ngOnInit(): void {
     
   }
-
 
   logout() {
     this.auth.logout();

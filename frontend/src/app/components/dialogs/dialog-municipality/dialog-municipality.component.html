@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>{{ heading }}</h1>
+<div mat-dialog-content>
+    <form #f="ngForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput  [ngModel]="editData?.municipalityname" name="municipalityname" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>State</mat-label>
+            <mat-select [ngModel]="editData?.state" [compareWith]="compareTo" name="state" required>
+              <mat-option *ngFor="let s of states" [value]="s">
+                {{ s.statename }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button  color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button  style="margin-left: 8px;" color="primary" (click) = "addMunicipality(f)">{{actionBtn}}</button>
+</div>

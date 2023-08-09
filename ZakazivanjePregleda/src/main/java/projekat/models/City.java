@@ -36,6 +36,9 @@ public class City implements Serializable {
 	@JoinColumn(name="municipalityid")
 	private Municipality municipality;
 
+	/*@Column(name="municipalityid")
+	private Integer municipality;*/
+
 	//bi-directional many-to-one association to Facility
 	@JsonIgnore
 	@OneToMany(mappedBy="city")

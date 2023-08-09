@@ -28,13 +28,13 @@ public class AppoitmentService {
         return appoitment;
     }
 
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     public Appoitment insert(Appoitment appoitment) {
         final var inserted = appoitmentRepository.save(appoitment);
         return inserted;
     }
 
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     public Appoitment update(Appoitment appoitment) {
         Appoitment updated = null;
         if (appoitmentRepository.existsById(appoitment.getAppoitmentid())) {
@@ -43,7 +43,7 @@ public class AppoitmentService {
         return updated;
     }
 
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     public boolean delete(Integer id) {
         if(appoitmentRepository.existsById(id))
             appoitmentRepository.deleteById(id);
